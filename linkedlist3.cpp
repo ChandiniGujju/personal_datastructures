@@ -1,4 +1,4 @@
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 class node{
 public:
@@ -28,13 +28,13 @@ int main(){
     add_at_head(head,9);
     add_at_head(head,7);
     print(head);
-}*/
+}
 
 
 
 
 
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 class node{
 public:
@@ -71,7 +71,7 @@ int main(){
     add_at_tail(head,9);
     add_at_tail(head,7);
     print(head);
-}*/
+}
 
 
 
