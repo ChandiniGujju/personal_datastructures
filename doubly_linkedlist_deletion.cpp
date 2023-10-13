@@ -36,21 +36,14 @@ void insert_at_tail1(node* &head,node* &tail,int val){//time complexity O(1)
 
 
 
-
-
-
-void delete_at_start(node* &head,node* &tail){
+void delete_at_start(node* &head){
     if(head==NULL){
         return;
     }
     node* temp=head;
-    head=head->next;
-    if(head!=NULL){
-        head->prev=NULL;
-    }
-    else{
-        tail=NULL;
-    }
+    temp->next->prev=NULL;
+    head=temp->next;
+    temp->next=NULL;
     delete temp;
     return;
 }
@@ -58,21 +51,15 @@ void delete_at_start(node* &head,node* &tail){
 
 
 
+void delete_at_tail(node* &tail){
 
-
-void delete_at_tail(node* &head,node* &tail){
-
-    if(head==NULL){
+    if(tail==NULL){
         return;
     }
     node* temp=tail;
-    tail=tail->prev;
-    if(tail!=NULL){
-        tail->next=NULL;
-    }
-    else{
-        head=NULL;
-    }
+    temp->prev->next=NULL;
+    tail=temp->prev;
+    temp->prev=NULL;
     delete temp;
     return;
 }
@@ -84,12 +71,22 @@ void delete_at_tail(node* &head,node* &tail){
 
 
 void delete_at_pos(node* head,node* tail,int pos){
+    if(pos==1){
+        delete_at_start(head);
+        return;
+    }
+
     node* temp=head;
+    node* temp2=head;
     for(int i=0;i<pos-1;i++){
+        temp2=temp;
         temp=temp->next;
     }
-    temp->prev->next=temp->next;
-    temp->next->prev=temp->prev;
+    temp2->next=temp->next;
+    temp->next->prev=temp2->next;
+    temp->prev=NULL;
+    //temp->prev->next=temp->next;
+    //temp->next->prev=temp->prev;
     delete temp;
     return;
 }
