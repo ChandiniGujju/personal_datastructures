@@ -1,6 +1,6 @@
 
 //queues using array implementation
-/*
+
 #include<iostream>
 using namespace std;
 #define n 20
@@ -56,7 +56,7 @@ int main(){
     q.dequeue();
     cout<<q.isEmpty()<<endl;
 }
-*/
+
 
 
 //queues using linked list implementation
