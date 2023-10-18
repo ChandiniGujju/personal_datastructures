@@ -14,6 +14,9 @@ public:
         right=NULL;
     }
 };
+
+
+
 node* buildTree(node* &root){
     cout<<"enter the data: "<<endl;
     int data;
