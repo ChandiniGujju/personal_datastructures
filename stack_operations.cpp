@@ -59,6 +59,79 @@ int main(){
 
 
 
+//stack using linkedlist implementation
+#include<iostream>
+using namespace std;
+
+class node {
+public:
+    int data;
+    node* next;
+    node(int val) {
+        data = val;
+        next = NULL;
+    }
+};
+
+class Stack {
+    node* top;
+public:
+    Stack() {
+        top = NULL;
+    }
+
+    void push(int val) {
+        node* n = new node(val);
+        if (top == NULL) {
+            top = n;
+            return;
+        }
+        n->next = top;
+        top = n;
+    }
+
+    void pop() {
+        if (top == NULL) {
+            return;
+        }
+        node* todelete = top;
+        top = top->next;
+        delete(todelete);
+    }
+
+    int peek() {
+        if (top == NULL) {
+            return -1;
+        }
+        return top->data;
+    }
+
+    bool empty() {
+        return top == NULL;
+    }
+
+    void display() {
+        node* temp = top;
+        while (temp != NULL) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Stack q1;
+    q1.push(1);
+    q1.push(2);
+    q1.push(3);
+    q1.push(4);
+    q1.display();
+    q1.pop();
+    q1.display();
+    cout << q1.peek() << endl;
+    cout << q1.empty() << endl;
+}
 
 
 
