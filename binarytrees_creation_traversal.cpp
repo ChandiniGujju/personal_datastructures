@@ -1,6 +1,6 @@
 
 //creation of tree
-/*
+
 #include<iostream>
 using namespace std;
 class node{
@@ -85,7 +85,7 @@ int main(){
     cout<<endl;
     postorder(root);
 }
-*/
+
 
 
 
