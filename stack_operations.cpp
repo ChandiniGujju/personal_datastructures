@@ -250,3 +250,48 @@ int main(){
 
 }
 
+
+#include<iostream>
+#include<stack>
+using namespace std;
+
+void insertAtK(stack<int> &s, int k, int element) {
+    if (k == 1) {
+        s.push(element);
+        return;
+    }
+
+    int topElement = s.top();
+    s.pop();
+    insertAtK(s, k - 1, element);
+    s.push(topElement);
+}
+
+int main() {
+    stack<int> s;
+
+    s.push(1);
+    s.push(2);
+    s.push(3);
+
+    cout << "Stack before insertion: ";
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+    }
+
+    cout << endl;
+
+    insertAtK(s, 2, 4);
+
+    cout << "Stack after insertion: ";
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
