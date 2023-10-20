@@ -77,8 +77,8 @@ void copystack(stack<int> &source,stack<int> &destination){
     }
     while(!temp.empty()){
         int e=temp.top();
-        source.push(temp.top());
-        destination.push(temp.top());
+        source.push(e);
+        destination.push(e);
         temp.pop();
     }
 }
